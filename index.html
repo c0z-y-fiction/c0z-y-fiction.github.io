@@ -1,46 +1,148 @@
 <!DOCTYPE html>
-<html>
+<html lang="ko">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>김혜진 | Security Portfolio</title>
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
         body {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
-            font-family: 'Pretendard', sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            line-height: 1.6;
+            color: #333;
         }
-        section {
-            margin-bottom: 60px;
+        header {
+            text-align: center;
+            padding: 4rem 2rem;
+            background: linear-gradient(135deg, #4A9B9B, #1E3A5F);
+            color: white;
         }
-        h1 { color: #FF6B9D; }
-        h2 { color: #4A9B9B; }
-        pre {
-            background: #f5f5f5;
-            padding: 20px;
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+        header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+        main {
+            max-width: 1200px;
+            margin: 4rem auto;
+            padding: 0 2rem;
+        }
+        .projects {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+        .card {
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        .card:hover {
+            transform: translateY(-8px);
+        }
+        .card h2 {
+            color: #1E3A5F;
+            margin-bottom: 1rem;
+        }
+        .card p {
+            color: #666;
+            margin-bottom: 1.5rem;
+        }
+        .card ul {
+            list-style: none;
+            margin-bottom: 1.5rem;
+        }
+        .card ul li {
+            padding: 0.5rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+            color: #555;
+        }
+        .card ul li::before {
+            content: "▸";
+            position: absolute;
+            left: 0;
+            color: #FF6B9D;
+        }
+        .btn {
+            display: inline-block;
+            padding: 0.75rem 2rem;
+            background: #FF6B9D;
+            color: white;
+            text-decoration: none;
             border-radius: 8px;
+            transition: background 0.3s ease;
+        }
+        .btn:hover {
+            background: #1E3A5F;
+        }
+        footer {
+            text-align: center;
+            padding: 2rem;
+            background: #f5f5f5;
+            margin-top: 4rem;
+        }
+        footer a {
+            margin: 0 1rem;
+            color: #1E3A5F;
+            text-decoration: none;
+        }
+        footer a:hover {
+            color: #FF6B9D;
+        }
+        @media (max-width: 768px) {
+            .projects {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
 <body>
-    <h1>OWASP TOP 10 for Django</h1>
-    
-    <section id="a01">
-        <h2>A01: Broken Access Control</h2>
-        <p>취약한 접근 제어...</p>
-        
-        <h3>취약한 코드</h3>
-        <pre>def delete_user(request, user_id):
-    user = User.objects.get(id=user_id)
-    user.delete()</pre>
-        
-        <h3>안전한 코드</h3>
-        <pre>@permission_required("auth.delete_user")
-def delete_user(request, user_id):
-    ...</pre>
-    </section>
-    
-    <section id="a02">
-        <h2>A02: Cryptographic Failures</h2>
-        ...
-    </section>
+    <header>
+        <h1>김혜진</h1>
+        <p>Junior Security Engineer</p>
+    </header>
+
+    <main>
+        <div class="projects">
+            <div class="card">
+                <h2>OWASP Top 10 for Django</h2>
+                <p>Django 개발자를 위한 웹 보안 가이드</p>
+                <ul>
+                    <li>A01: Broken Access Control</li>
+                    <li>A02: Cryptographic Failures</li>
+                    <li>A03: Injection</li>
+                    <li>실제 보안 사고 사례 분석</li>
+                </ul>
+                <a href="/owasp/" class="btn">보러가기 →</a>
+            </div>
+
+            <div class="card">
+                <h2>ISMS-P 컴플라이언스 분석</h2>
+                <p>보호 대책 요구 사항 분석 보고서</p>
+                <ul>
+                    <li>2.1.1. 정책의 유지 관리</li>
+                    <li>2.1.2. 조직의 유지 관리</li>
+                    <li>법규 비교 (2019 vs 2023)</li>
+                    <li>결함 사례 분석</li>
+                </ul>
+                <a href="/isms/" class="btn">보러가기 →</a>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <a href="https://github.com/c0z-y-fiction">GitHub</a>
+        <a href="https://velog.io/@yourusername">Velog</a>
+    </footer>
 </body>
 </html>
