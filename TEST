@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            font-family: 'Pretendard', sans-serif;
+        }
+        section {
+            margin-bottom: 60px;
+        }
+        h1 { color: #FF6B9D; }
+        h2 { color: #4A9B9B; }
+        pre {
+            background: #f5f5f5;
+            padding: 20px;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body>
+    <h1>OWASP TOP 10 for Django</h1>
+    
+    <section id="a01">
+        <h2>A01: Broken Access Control</h2>
+        <p>취약한 접근 제어...</p>
+        
+        <h3>취약한 코드</h3>
+        <pre>def delete_user(request, user_id):
+    user = User.objects.get(id=user_id)
+    user.delete()</pre>
+        
+        <h3>안전한 코드</h3>
+        <pre>@permission_required("auth.delete_user")
+def delete_user(request, user_id):
+    ...</pre>
+    </section>
+    
+    <section id="a02">
+        <h2>A02: Cryptographic Failures</h2>
+        ...
+    </section>
+</body>
+</html>
